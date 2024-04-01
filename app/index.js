@@ -1,9 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import {useState} from 'react'
-import Calculadora  from './Calculadora';
-import TelaLoginNetflix from './TelaLoginNetflix';  
-
+import { Button, Pressable, StyleSheet, Text, View } from 'react-native';
+import {useState} from 'react' 
+import {Link} from 'expo-router'
 
 
 const getNomeCompleto = (nome, sobrenome) => {
@@ -16,7 +14,7 @@ const Cat = ({nome, sobrenome, idade}) => {
   return <Text>Oi, Eu sou {getNomeCompleto(nome, sobrenome).toUpperCase()}, e eu tenho {(idade)} {texto}</Text>
 }
 
-export default TelaLoginNetflix;
+
 
 function IFAL() {
 
@@ -36,7 +34,16 @@ function IFAL() {
       setCliques(0)
   }/>
     <Text>Quantidade de cliques: {cliques}</Text>
-
+    <Link href ="/calculadora"> Abrir Calculadora</Link>
+    <Link href ="/calculadora" asChild>
+      <Pressable>
+        <Text>Abrir a calculadora com o Pressable</Text>
+      </Pressable>
+    </Link>
+    <Link href ="/cliques" asChild>
+      <Button title ="Abrir contador de cliques"/>
+    </Link>
+    <StatusBar style ="auto"/>
     <Text></Text>
     </View>
 
@@ -53,3 +60,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default IFAL;
